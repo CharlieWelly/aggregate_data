@@ -72,8 +72,8 @@ class WorkSheet(object):
         self.start = STATEMENT[self.sheetname].start
         self.length = STATEMENT[self.sheetname].length
         self.first_item = STATEMENT[self.sheetname].first_item
-        self.ticker = self.sheet[TICKER].value.strip()
-        self.interval = self.sheet[INTERVAL].value.strip()
+        self.ticker = self.content[TICKER].value.strip()
+        self.interval = self.content[INTERVAL].value.strip()
 
     def __str__(self):
         return "<Worksheet: %s>" % self.sheetname
@@ -129,7 +129,7 @@ class CashFlowSheet(WorkSheet):
         self.first_item = STATEMENT[self.sheetname].first_item
 
     def contain_direct_cashflow(self):
-        val = self.sheet[CASHFLOW_STATEMENT_CHECK].value
+        val = self.content[CASHFLOW_STATEMENT_CHECK].value
         return val and val.strip() == CFDR.first_item
 
 

@@ -5,14 +5,14 @@ from v04 import *
 class TestV03(unittest.TestCase):
     def setUp(self):
         self.dble_wb = WorkBook("./test_cases/double_statements.xlsm", "DN")
-        self.dble_sheets = self.dble_wb.get_sheets()
+        self.dble_sheets = self.dble_wb.export_sheets()
         self.dble_ws = self.dble_sheets[0]
         self.dble_ws0 = self.dble_sheets[1]
         self.dble_ws1 = self.dble_sheets[2]
         self.dble_ws2 = self.dble_sheets[3]
 
         self.nodata_wb = WorkBook("./test_cases/no_data.xlsm", "DN")
-        self.nodata_sheets = self.nodata_wb.get_sheets()
+        self.nodata_sheets = self.nodata_wb.export_sheets()
         self.nodata_ws = self.nodata_sheets[-1]
 
         self.good_wb = WorkBook("./test_cases/good.xlsm", "DN")
@@ -24,10 +24,10 @@ class TestV03(unittest.TestCase):
         self.assertTrue(self.dble_wb.contain_double_statement())
         self.assertFalse(self.good_wb.contain_double_statement())
 
-    def test_get_sheets(self):
-        self.assertEqual(len(self.dble_wb.get_sheets()), 5)
-        self.assertEqual(len(self.good_wb.get_sheets()), 4)
-        # sheets = self.dble_wb.get_sheets()
+    def test_export_sheets(self):
+        self.assertEqual(len(self.dble_wb.export_sheets()), 5)
+        self.assertEqual(len(self.good_wb.export_sheets()), 4)
+        # sheets = self.dble_wb.export_sheets()
         # print(sheets[3])
 
     def test_WorkSheet(self):
