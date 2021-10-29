@@ -1,5 +1,6 @@
 import sys
 import v04
+import time
 
 MODES = {
     "-n1": "NHOM_1",
@@ -10,6 +11,7 @@ MODES = {
 
 
 def main():
+    start = time.perf_counter()
     args = sys.argv[1:]
     mode = args[1]
     name = args[2]
@@ -21,8 +23,9 @@ def main():
 
     df1 = v04.toUserFriendly(df)
 
-    df.to_csv("./developer_aggregated.csv")
-    df1.to_excel("./userfriendly_aggregated.xlsx")
+    df.to_csv("./%s_developer_aggregated.csv" % MODES[mode])
+    df1.to_excel("./%s_userfriendly_aggregated.xlsx" % MODES[mode])
+    print("time elapse: %s" % (time.perf_counter() - start))
 
 
 if __name__ == "__main__":
