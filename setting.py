@@ -43,7 +43,7 @@ STATEMENT_TYPE = {
         "Lưu chuyển tiền tệ": {"start": None, "length": None, "first_item": None},
         "Cân đối kế toán": {
             "start": 14,
-            "length": 99,
+            "length": 101,
             "first_item": "TỔNG TÀI SẢN",
         },
         "Kết quả Kinh doanh": {
@@ -113,7 +113,7 @@ STATEMENT_TYPE = {
         "Lưu chuyển tiền tệ": {"start": None, "length": None, "first_item": None},
         "Cân đối kế toán": {
             "start": 14,
-            "length": 217,
+            "length": 218,
             "first_item": "TÀI SẢN NGẮN HẠN",
         },
         "Kết quả Kinh doanh": {
@@ -123,18 +123,18 @@ STATEMENT_TYPE = {
         },
         "Lưu chuyển tiền tệ - Trực tiếp": {
             "start": 15,
-            "length": 98,
+            "length": 99,
             "first_item": "Tiền đã chi mua các tài sản tài chính",
         },
         "Lưu chuyển tiền tệ - Gián tiếp": {
             "start": 15,
-            "length": 154,
+            "length": 155,
             "first_item": "LỢI NHUẬN TRƯỚC THUẾ",
         },
         "Lưu chuyển tiền tệ - Gián tiếp - 2": {
             "start": 119,
-            "length": 154,
-            "first_item": "Lợi nhuận trước thuế",
+            "length": 155,
+            "first_item": "LỢI NHUẬN TRƯỚC THUẾ",
         },
         "Thuyết minh": {
             "start": 14,

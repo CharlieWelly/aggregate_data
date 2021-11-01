@@ -100,7 +100,7 @@ class WorkSheet(object):
         df = df.iloc[self.start : self.start + self.length]
         df.dropna(axis="columns", how="all", inplace=True)
         df.dropna(axis="index", how="all", inplace=True)
-        df.dropna(subset=["items"])
+        df.dropna(subset=["items"], inplace=True)
         df["items"] = df["items"].str.strip()
         df.reset_index(drop=True, inplace=True)
 

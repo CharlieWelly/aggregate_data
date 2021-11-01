@@ -4,6 +4,7 @@ import v04
 
 class TestV03(unittest.TestCase):
     def setUp(self):
+        v04.setUp("NHOM_1")
         self.dble_wb = v04.WorkBook("./test_cases/double_statements.xlsm")
         self.dble_sheets = self.dble_wb.export_sheets()
         self.dble_ws = self.dble_sheets[0]
@@ -89,16 +90,45 @@ class TestV03(unittest.TestCase):
         self.assertEqual(df.shape, (18655, 7))
         # print(df)
 
-    # def test_setUp(self):
-    #     v04.setUp("NHOM_3")
-    #     self.assertEqual(v04.balSheet["first_item"], "TÀI SẢN NGẮN HẠN")
-    #     self.assertEqual(v04.incSta["first_item"], "Doanh thu phí bảo hiểm")
-    #     self.assertEqual(
-    #         v04.cFlowDirect["first_item"], "Tiền thu phí bảo hiểm và thu lãi"
-    #     )
-    #     self.assertEqual(v04.cFlowInDirect["first_item"], "Lợi nhuận trước thuế")
-    #     self.assertEqual(v04.cFlowInDirect2["first_item"], "Lợi nhuận trước thuế")
-    #     self.assertEqual(v04.staFootnotes["first_item"], "Tiền")
+    def test_nhom_3(self):
+        v04.setUp("NHOM_3")
+        wb = v04.WorkBook("./test_cases/nhom_3.xlsm")
+        sheets = wb.export_sheets()
+        self.assertEqual(sheets[0].to_df().shape, (5724, 7))
+        self.assertEqual(sheets[1].to_df().shape, (3120, 7))
+        self.assertEqual(sheets[2].to_df().shape, (957, 7))
+        self.assertEqual(sheets[3].to_df().shape, (1617, 7))
+        self.assertEqual(sheets[4].to_df().shape, (7575, 7))
+
+    def test_nhom_2(self):
+        v04.setUp("NHOM_2")
+        wb = v04.WorkBook("./test_cases/nhom_2.xlsm")
+        sheets = wb.export_sheets()
+        self.assertEqual(sheets[0].to_df().shape, (3168, 7))
+        self.assertEqual(sheets[1].to_df().shape, (900, 7))
+        self.assertEqual(sheets[2].to_df().shape, (1254, 7))
+        self.assertEqual(sheets[3].to_df().shape, (1298, 7))
+        self.assertEqual(sheets[4].to_df().shape, (6351, 7))
+
+    def test_nhom_4(self):
+        v04.setUp("NHOM_4")
+        wb = v04.WorkBook("./test_cases/nhom_4.xlsm")
+        sheets = wb.export_sheets()
+        self.assertEqual(sheets[0].to_df().shape, (3255, 7))
+        self.assertEqual(sheets[1].to_df().shape, (1424, 7))
+        self.assertEqual(sheets[2].to_df().shape, (924, 7))
+        self.assertEqual(sheets[3].to_df().shape, (5136, 7))
+
+    def test_nhom_4_b(self):
+        v04.setUp("NHOM_4")
+        wb = v04.WorkBook("./test_cases/nhom_4_b.xlsm")
+        sheets = wb.export_sheets()
+        self.assertEqual(len(sheets), 5)
+        self.assertEqual(sheets[0].to_df().shape, (9331, 7))
+        self.assertEqual(sheets[1].to_df().shape, (3738, 7))
+        self.assertEqual(sheets[2].to_df().shape, (3201, 7))
+        self.assertEqual(sheets[3].to_df().shape, (5082, 7))
+        self.assertEqual(sheets[4].to_df().shape, (23112, 7))
 
 
 if __name__ == "__main__":
